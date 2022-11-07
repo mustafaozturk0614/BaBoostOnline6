@@ -16,7 +16,7 @@ public class Question1 {
 		System.out.println(result3);
 		double result4 = (number1 / number5);
 		System.out.println(result4);
-		System.out.println("///////////////////////////");
+		System.out.println("içş");
 		int n1 = 10;
 		int n2 = 5;
 		n1 = n2++;
