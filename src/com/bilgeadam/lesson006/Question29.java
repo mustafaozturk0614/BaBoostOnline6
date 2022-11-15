@@ -37,6 +37,8 @@ public class Question29 {
 			System.out.println("1-Harf Saydýrma");
 			System.out.println("2-Harf Deðiþtirme");
 			System.out.println("3-Polindrom Kontrolu");
+			System.out.println("4-Sayfa Açma");
+			System.out.println("5-Sayfa Açma 2");
 			System.out.println("0-çýkýþ");
 			int secim = scanner.nextInt();
 			scanner.nextLine();
@@ -114,6 +116,72 @@ public class Question29 {
 
 				break;
 
+			case 4:
+				int a = 0, b = 0, c = 0, d = 0, toplam = 0;
+				System.out.println("5 adet deðer giriniz");
+				for (int i = 0; i < 5; i++) {
+					System.out.println(i + 1 + ".kelime");
+					String kelime4 = scanner.nextLine();
+					if (kelime4.charAt(0) == 'a') {
+
+						if (a == 0) {
+							a = 1;
+						}
+					}
+
+					else if (kelime4.charAt(0) == 'b') {
+						if (b == 0) {
+							b = 1;
+						}
+					} else if (kelime4.charAt(0) == 'c') {
+						if (c == 0) {
+							c = 1;
+						}
+					} else {
+						if (d == 0) {
+							d = 1;
+						}
+					}
+
+				}
+
+				toplam = a + b + c + d;
+				System.out.println("toplam dosya sayýsý " + toplam);
+
+				break;
+
+			case 5:
+				String defter = "";
+				for (int i = 0; i < 5; i++) {
+					System.out.println("lütfen bir deðer giriniz");
+					switch (scanner.nextLine().charAt(0)) {
+					case 'a', 'A':
+						if (!defter.contains("a")) {
+							defter += "a";
+						}
+
+						break;
+					case 'b', 'B':
+						if (!defter.contains("b")) {
+							defter += "b";
+						}
+						break;
+					case 'c', 'C':
+						if (!defter.contains("c")) {
+							defter += "c";
+						}
+						break;
+
+					default:
+						if (!defter.contains("x")) {
+							defter += "x";
+						}
+						break;
+					}
+
+				}
+				System.out.println("Açýlan sayfa Sayýsý :" + defter.length());
+				break;
 			case 0:
 				System.out.println("Programdan Çýkýlýyor.....!");
 				kontrol = false;
