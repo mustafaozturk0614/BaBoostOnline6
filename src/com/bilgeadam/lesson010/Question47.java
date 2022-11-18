@@ -53,6 +53,11 @@ public class Question47 {
 				System.out.println(cikarma());
 				break;
 
+			case 4:
+				System.out.println(bolme());
+
+				break;
+
 			case 5:
 				ebobEkok();
 				break;
@@ -134,6 +139,32 @@ public class Question47 {
 		int ekok = sayi1 * sayi2 / ebob;
 		System.out.println("ebob=" + ebob + "\n" + "ekok=" + ekok);
 
+	}
+
+	public static double bolme() {
+		Scanner scanner = new Scanner(System.in);
+		String sayi = "";
+		double bolum = 1;
+		int count = 0;
+		do {
+			System.out.println("Lütfen Bir sayý giriniz");
+			sayi = scanner.nextLine();
+			count++;
+
+			if (!sayi.equals("=")) {
+				if (count == 1) {
+					bolum = Double.parseDouble(sayi);
+				} else if (sayi.equals("0")) {
+
+					System.out.println("lütfen 0 dan baþka sayý giriniz");
+				} else {
+					bolum /= Double.parseDouble(sayi);
+				}
+
+			}
+
+		} while (!sayi.equals("="));
+		return bolum;
 	}
 
 }
