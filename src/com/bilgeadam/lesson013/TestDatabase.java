@@ -7,7 +7,7 @@ public class TestDatabase {
 		Kullanici[] kullaniciListesi = Database.kullaniciListesi;
 		for (int i = 0; i < kullaniciListesi.length; i++) {
 			if (kullaniciListesi[i] != null) {
-				System.out.println(kullaniciListesi[i].isim);
+				System.out.println(kullaniciListesi[i].isim + "-" + kullaniciListesi[i].id);
 			}
 		}
 	}
