@@ -12,7 +12,7 @@ public class Test {
 		test2.boyut1 = 10;
 		kontrol = test2.boyut1 == test1.boyut1;
 		System.out.println(kontrol);
-		// System.out.println(test1.diziUret() == test1.boyut1);// true
+		// ** System.out.println(test1.diziUret() == test1.boyut1);// true
 		test2.diziUret();
 		System.out.println("x=>" + test2.boyut1);// 10
 
