@@ -1,0 +1,7 @@
+package com.bilgeadam.lesson019.müzikaletleri;
+
+public class VurmalýMuzikAletleri extends MüzikAleti {
+
+	double yuzeyGenisliði;
+
+}
