@@ -47,4 +47,8 @@ public class Kisi {
 		this.adres = adres;
 	}
 
+	public void menu() {
+		System.out.println(isim + " O.Y.S  hoþgeldiniz");
+	}
+
 }

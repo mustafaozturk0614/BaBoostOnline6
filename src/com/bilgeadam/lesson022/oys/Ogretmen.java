@@ -38,4 +38,10 @@ public class Ogretmen extends Calisan {
 		this.nobetciMi = nobetciMi;
 	}
 
+	@Override
+	public void menu() {
+		super.menu();
+		System.out.println("1-Girdiðim dersleri Listele");
+		System.out.println("2-Nöbetcilik durumu sorgula");
+	}
 }

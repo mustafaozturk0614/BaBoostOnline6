@@ -10,4 +10,6 @@ public interface IOgrenci›sleri {
 
 	boolean dersKaydiOnayla(Ders ders, Ogrenci Ogrenci);
 
+	void ogrencileriListele();
+
 }
