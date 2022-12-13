@@ -90,4 +90,23 @@ public class OrtaSaha extends AktifFutbolcu {
 				+ getDogalForm() * 0.1 + getSans() * 0.1 + bonus);
 	}
 
+	@Override
+	public int golSkor(int kurtaris) {
+		/*
+		 * 
+		 * Bonus= 1 ile 6 arasýnda rastgele bir sayý * dogalForm*0.075 Kurtarýþ=karþý
+		 * takým kalecisinden gelen kurtarýþ skor deðeri.
+		 * yetenek*0.2+ozelYetenek*0.2+sut*0.2+ilkDokunus*0.1+kararlilik*0.1+sans*0.1+
+		 * dogalForm*0.1+bonus-kurtarýþ
+		 * 
+		 * 
+		 * 
+		 */
+		Random random = new Random();
+		double bonus = (random.nextDouble(1, 6) * getDogalForm() * 0.075);
+
+		return (int) (getYetenek() * 0.2 + ozelYetenek * 0.2 + getSut() * 0.2 + +ilkDokunus * 0.1
+				+ getKararlilik() * 0.1 + getSans() * 0.1 + getDogalForm() * 0.1 + bonus - kurtaris);
+	}
+
 }

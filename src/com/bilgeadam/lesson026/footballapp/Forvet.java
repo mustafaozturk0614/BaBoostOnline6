@@ -80,4 +80,24 @@ public class Forvet extends AktifFutbolcu {
 				+ getDogalForm() * 0.1 + getSans() * 0.1 + bonus);
 	}
 
+	@Override
+	public int golSkor(int kurtaris) {
+		/*
+		 * 
+		 * Bonus= 1 ile 5 arasýnda rastgele bir sayý * dogalForm*0.075 Kurtarýþ=karþý
+		 * takým kalecisinden gelen kurtarýþ skor deðeri.
+		 * yetenek*0.2+ozelYetenek*0.2+sut*0.1+ilkDokunus*0.1+kararlilik*0.1+sans*0.1+
+		 * kafa*0.1+bitiricilik*0.2+ dogalForm*0.1+bonus-kurtarýþ
+		 * 
+		 * 
+		 * 
+		 */
+		Random random = new Random();
+		double bonus = (random.nextDouble(1, 5) * getDogalForm() * 0.075);
+
+		return (int) (getYetenek() * 0.2 + ozelYetenek * 0.2 + getSut() * 0.1 + +ilkDokunus * 0.1
+				+ getKararlilik() * 0.1 + getSans() * 0.1 + kafa * 0.1 + bitiricilik * 0.2 + getDogalForm() * 0.1
+				+ bonus - kurtaris);
+	}
+
 }

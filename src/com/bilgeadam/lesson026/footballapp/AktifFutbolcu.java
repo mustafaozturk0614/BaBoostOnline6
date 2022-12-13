@@ -9,16 +9,30 @@ public abstract class AktifFutbolcu extends Futbolcu {
 
 	public boolean pasVer() {
 		int pasSkor = pasSkor();
-		System.out.println("passkoru= " + pasSkor);
-		if (pasSkor > 65) {
-			System.out.println("Başarılı Pas");
+
+		if (pasSkor > 68) {
+
 			return true;
 		} else {
-			System.out.println("Başarısız Pas");
+
+			return false;
+		}
+	}
+
+	public boolean golVurusu(int kurtaris) {
+		int golSkor = golSkor(kurtaris);
+
+		if (golSkor > 68) {
+
+			return true;
+		} else {
+
 			return false;
 		}
 	}
 
 	public abstract int pasSkor();
+
+	public abstract int golSkor(int kurtaris);
 
 }

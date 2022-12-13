@@ -33,4 +33,18 @@ public class Kaleci extends Futbolcu {
 				+ ", getDogalForm()=" + getDogalForm() + ", getSans()=" + getSans() + "]";
 	}
 
+	public int kurtarisSkor() {
+		/*
+		 * Bonus= 1 ile 5 arasýnda rastgele sayý *(dogalForm*0.025) Skor=
+		 * kurtarýs*0.2+kararlilik*0.1)+bonu
+		 * 
+		 */
+
+		Random random = new Random();
+
+		double bonus = random.nextDouble(1, 5) * getDogalForm() * 0.025;
+
+		return (int) (kurtaris * 0.2 + getKararlilik() * 0.1 + bonus);
+	}
+
 }

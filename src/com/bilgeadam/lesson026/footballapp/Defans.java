@@ -68,4 +68,23 @@ public class Defans extends AktifFutbolcu {
 				+ pozisyonAlma * 0.1 + getSans() * 0.2 + bonus);
 	}
 
+	@Override
+	public int golSkor(int kurtaris) {
+		/*
+		 * 
+		 * Defans oyuncusu için bonus bir puan hesabý daha yapýlýr Bonus= 2 ile 5
+		 * arasýnda rastgele bir sayý * dogalForm*0.075 Kurtarýþ=karþý takým
+		 * kalecisinden gelen kurtarýþ skor deðeri.
+		 * yetenek*0.3+sut*0.2+kararlilik*0.1+sans*0.1+kafa*0.1+sicrama*0.1+dogalForm*0.
+		 * 1+bonus-kurtarýþ
+		 * 
+		 * 
+		 */
+		Random random = new Random();
+		double bonus = (random.nextDouble(2, 5) * getDogalForm() * 0.075);
+
+		return (int) (getYetenek() * 0.3 + getSut() * 0.2 + getKararlilik() * 0.2 + getSans() * 0.1 + kafa * 0.1
+				+ sicrama * 0.1 + getDogalForm() * 0.1 + bonus - kurtaris);
+	}
+
 }
