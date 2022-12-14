@@ -19,9 +19,11 @@ public class Test {
 		takimlar.add(takim1);
 		takimlar.add(takim2);
 //
-		Mac mac = new Mac(6000, takimlar);
-
+		Mac mac = new Mac(60000, takimlar);
+//
 		mac.mac();
+
+//		System.out.println(System.currentTimeMillis());
 
 //		Takim takim = mac.takimDegistir2(mac.takimlar.get(0));
 //

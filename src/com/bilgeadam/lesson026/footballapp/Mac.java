@@ -74,7 +74,6 @@ public class Mac {
 						+ " nolu oyuncu " + futbolcular.get(pasAlacakOyuncuIndex).getFormaNo() + " pas atýyor");
 				index = pasAlacakOyuncuIndex;
 				Thread.sleep(1500);
-
 			} else {
 				System.out.println(takim.getAd() + " adlý takýmdan " + futbolcular.get(index).getFormaNo()
 						+ " nolu oyuncunun pasý baþarýsýz oldu !!! ");
@@ -86,7 +85,7 @@ public class Mac {
 		}
 
 		golVurusu(takim.getFutbolcular().get(index), takim);
-		takim = takimDegistir(takim);
+
 	}
 
 	public void golVurusu(AktifFutbolcu futbolcu, Takim takim) throws InterruptedException {
@@ -97,21 +96,22 @@ public class Mac {
 			System.out.println("Goll goll golll");
 			int takimIndex = takimlar.indexOf(takim);
 			macSkoru[takimIndex] += 1;
-			System.out.println(futbolcu.getFormaNo() + " nolu futbolcu golu atýyor...!!!");
+			System.out.println(
+					takim.getAd() + " adli takýmdan" + futbolcu.getFormaNo() + " nolu futbolcu golu atýyor...!!!");
 			skorGoster();
 		} else {
-			System.out.println(futbolcu.getFormaNo() + " nolu futbolcu golu kaçýrdý...!!!");
+			System.out.println(
+					takim.getAd() + " adli takýmdan" + futbolcu.getFormaNo() + " nolu futbolcu golu kaçýrdý...!!!");
 		}
 
 	}
 
 	public void skorGoster() {
-
 		System.out.println(" Mac skoru");
-
+		System.out.println("========================");
 		System.out.println(
 				takimlar.get(0).getAd() + ": " + macSkoru[0] + " - " + takimlar.get(1).getAd() + ": " + macSkoru[1]);
-
+		System.out.println("========================");
 	}
 
 	public int passKontrol(int index) {
@@ -128,7 +128,6 @@ public class Mac {
 	public Takim yaziTura() {
 		Random random = new Random();
 		int index = random.nextInt(2);
-
 		return takimlar.get(index);
 	}
 
@@ -140,6 +139,7 @@ public class Mac {
 		System.out.println(takim.getAd() + " takim baþlýyor ....");
 		while (sure > System.currentTimeMillis()) {
 			oyna(takim);
+			takim = takimDegistir(takim);
 			System.out.println((sure - System.currentTimeMillis()) / 1000 + " saniye kaldý");
 		}
 		System.out.println("----------------------");
