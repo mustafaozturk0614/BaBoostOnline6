@@ -3,6 +3,15 @@ package com.bilgeadam.lesson027;
 import java.util.Random;
 import java.util.Stack;
 
+/*
+ * 
+ * rastgele 1 yada 2 gelicek bir secim ureteceðiz 
+ * sonra bu secime gore metotda bir iþlem sectirecegiz 
+ * 1 gelmiþse temizle 
+ * 2 gelmiþse kullan metodu calýssýn 
+ * 
+ * 
+ */
 public class TabakManager {
 
 	Stack<Tabak> kirliler;
@@ -11,6 +20,21 @@ public class TabakManager {
 	public TabakManager() {
 		this.kirliler = new Stack<>();
 		this.temizler = new Stack<>();
+	}
+
+	public void secimYap(int secim) {
+
+		switch (secim) {
+		case 1:
+			temizle();
+			break;
+		case 2:
+			kullan();
+			break;
+		default:
+			break;
+		}
+
 	}
 
 	public void rastgeleTabakOlustur() {
@@ -41,10 +65,11 @@ public class TabakManager {
 			Tabak tabak = kirliler.pop();
 			tabak.setKirliMi(false);
 			temizler.push(tabak);
-			System.out.println(tabak.getId() + " li tabak temizlenmiþtir");
+			System.out.println(tabak.getId() + " idli tabak temizlenmiþtir");
 		} else {
 
 			System.out.println("Kirli tabak kalmamýþtýr");
+			kullan();
 		}
 
 	}
@@ -55,10 +80,11 @@ public class TabakManager {
 			Tabak tabak = temizler.pop();
 			tabak.setKirliMi(true);
 			kirliler.push(tabak);
-			System.out.println(tabak.getId() + " li tabak kullanýlmýþtýr");
+			System.out.println(tabak.getId() + " idli tabak kullanýlmýþtýr");
 		} else {
 
 			System.out.println("Temiz tabak kalmamýþtýr");
+			temizle();
 		}
 
 	}
