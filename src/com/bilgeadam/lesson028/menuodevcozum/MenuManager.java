@@ -1,16 +1,21 @@
 package com.bilgeadam.lesson028.menuodevcozum;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
-import java.util.Stack;
 
 public class MenuManager {
 
-	Stack<EIcecekler> icecekler = new Stack<>();
-	ArrayList<Enum> icecekler2 = new ArrayList<>();
+	ArrayList<Enum> icecekler;
+	ArrayList<Enum> yemekler;
+	ArrayList<Enum> corbalar;
+	ArrayList<Enum> tatlilar;
 
 	public MenuManager() {
-
+		this.icecekler = new ArrayList<>(Arrays.asList(EIcecekler.values()));
+		this.yemekler = new ArrayList<>(Arrays.asList(EYemek.values()));
+		this.corbalar = new ArrayList<>(Arrays.asList(ECorba.values()));
+		this.tatlilar = new ArrayList<>(Arrays.asList(ETatli.values()));
 	}
 
 	public ECorba corbaBelirle() {
@@ -40,15 +45,11 @@ public class MenuManager {
 
 	}
 
-	public Enum menuBelirle2() {
-
+	public Enum menuBelirle2(ArrayList<Enum> list) {
 		Enum value = null;
-
-		int index = randomIndex(icecekler2.size());
-		value = icecekler2.get(index);
-		System.out.println(index);
-		icecekler2.remove(index);
-
+		int index = randomIndex(list.size());
+		value = list.get(index);
+		list.remove(index);
 		return value;
 	}
 
@@ -57,7 +58,16 @@ public class MenuManager {
 		menu.setCorba((ECorba) menuBelirle(ECorba.values()));
 		menu.setYemek((EYemek) menuBelirle(EYemek.values()));
 		menu.setTatli((ETatli) menuBelirle(ETatli.values()));
-		menu.setIcecek((EIcecekler) menuBelirle2());
+		menu.setIcecek((EIcecekler) menuBelirle(ETatli.values()));
+		return menu;
+	}
+
+	public Menu menuOlustur2() {
+		Menu menu = new Menu();
+		menu.setCorba((ECorba) menuBelirle2(corbalar));
+		menu.setYemek((EYemek) menuBelirle2(yemekler));
+		menu.setTatli((ETatli) menuBelirle2(tatlilar));
+		menu.setIcecek((EIcecekler) menuBelirle2(icecekler));
 		return menu;
 	}
 
@@ -66,7 +76,7 @@ public class MenuManager {
 		// {EGun.PAZARTESÝ,EGun.SALI,EGun.CARSAMBA.....}
 		for (EGun gun : gunler) {
 			System.out.println(gun.ordinal() + 1 + "-" + gun);
-			System.out.println(menuOlustur());
+			System.out.println(menuOlustur2());
 		}
 	}
 
