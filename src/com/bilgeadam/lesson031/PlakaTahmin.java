@@ -87,7 +87,8 @@ public class PlakaTahmin {
 				tahminleriYazdýr();
 				break;
 			case 3:
-
+				System.out.println("Sistemden çýkýlýyor...");
+				secim = 3;
 				break;
 
 			default:
@@ -103,7 +104,6 @@ public class PlakaTahmin {
 		oyunSayisi++;
 		System.out.println(oyunSayisi + ". oyun");
 		tahminEt(plaka);
-
 	}
 
 	public void tahminEt(int plaka) {
