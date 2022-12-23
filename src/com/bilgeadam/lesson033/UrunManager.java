@@ -84,28 +84,23 @@ public class UrunManager {
 			}
 			return false;
 		}).collect(Collectors.toSet());
-
 //		Set<Double> fiyatlar = urunler.stream().filter((x) -> x.getSonKullanamTarihi() > 2022).map((y) -> {
 //			y.setFiyat(y.getFiyat() * 1.54);
 //			return y.getFiyat();
 //		}).collect(Collectors.toSet());
 //		Set<Urun> zamliUrunler = urunler.stream().filter((x) -> x.getSonKullanamTarihi() > 2022)
 //				.collect(Collectors.toSet());
-
 		// zamliUrunler.forEach(System.out::println);
 		zamliUrunler2.forEach(System.out::println);
 
 	}
 
 	public void fiyatOrtalamasý(List<Urun> urunler) {
-
 		double ort = urunler.stream().collect(Collectors.averagingDouble(Urun::getFiyat));
 		// double ort2 = urunler.stream().collect(Collectors.averagingDouble((x) ->
 		// x.getFiyat()));
-
 		urunler.stream().mapToDouble(Urun::getFiyat).average().ifPresent(System.out::println);
 		// DoubleStream stream = urunler.stream().mapToDouble(Urun::getFiyat);
-
 		// System.out.println(stream.);
 		// System.out.println("ortalama fiyat:" + ort);
 
