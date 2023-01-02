@@ -4,12 +4,12 @@ import java.util.Random;
 
 /*
  * 
- * bir static olmayan metot yazacaðýz 
+ *1 bir static olmayan metot yazacaðýz 
  * bu metot bize random bir sayý üretip döenecek ;
  * daha sonra main metotda biz bu sayýyý boyut1 e eþitleyeilm 
  * boyut2 içinde bir random sayý olusturalým 
  * 
- * static bir metot olsun 
+ * 2 static bir metotumuz olsun 
  * string deðerimizi 
  * içeride deðiþitrip geri döndürelim
  * 

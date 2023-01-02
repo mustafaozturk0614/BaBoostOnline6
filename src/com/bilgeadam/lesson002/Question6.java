@@ -31,7 +31,7 @@ public class Question6 {
 		// alan = (float) (pi * Math.pow(yarÄ±Cap, 2));
 		cevre = 2 * pi * yariCap;
 		scan.close();
-		System.out.println("Dairenin alanÄ± :" + alan + "\nDairenin Ã§evresi :" + cevre);
+		System.out.println("Dairenin alaný :" + alan + "\nDairenin çevresi :" + cevre);
 		System.out.println("value=>>" + value);
 
 	}

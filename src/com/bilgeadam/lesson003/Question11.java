@@ -20,7 +20,7 @@ public class Question11 {
 			toplam += i;
 			sayac = i;
 			i++;
-			System.out.println("Toplam=>" + toplam + "-Dögü=>" + sayac);
+			System.out.println("Toplam=>" + toplam + "-Döngü=>" + sayac);
 		}
 	}
 
