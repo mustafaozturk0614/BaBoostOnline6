@@ -127,6 +127,7 @@ public class Sepet {
 		urunler.forEach(x -> {
 			System.out.println(i + "-" + x.getIsim() + "==>" + x.getFiyat());
 			i.set(i.get() + 1);
+
 		});
 		System.out.println("Eklemek istediðiniz urun numarasýný giriniz");
 		Scanner scanner = new Scanner(System.in);
