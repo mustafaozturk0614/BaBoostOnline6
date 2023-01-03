@@ -6,6 +6,10 @@ import java.util.DoubleSummaryStatistics;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 /*
@@ -44,6 +48,11 @@ public class Sepet {
 	double toplam = 0;
 
 //	List<String> urunler2;// "Cips-20","Kola-25"
+
+	public Sepet() {
+		urunOlustur2();
+		urunFiyatMapOlustur();
+	}
 
 	public void urunOlustur() {
 
@@ -87,13 +96,17 @@ public class Sepet {
 	}
 
 	public void sepetiGoset() {
-
+		sepet.forEach((k, v) -> System.out.println(k + "-" + v));
+		sepetToplami4();
 	}
 
-	public void urunEkle(String urunIsmi) {
+	public void urunEkle() {
 //		int sayac = sepet.containsKey(urunIsmi) ? sepet.get(urunIsmi) : 0;
 //
 //		sepet.put(urunIsmi, sayac + 1);
+		System.out.println("Eklemek istediðiniz urun ismini giriniz");
+		Scanner scanner = new Scanner(System.in);
+		String urunIsmi = scanner.nextLine();
 
 		if (sepet.containsKey(urunIsmi)) {
 
@@ -105,17 +118,44 @@ public class Sepet {
 
 	}
 
+	public void urunEkle2() {
+//		int sayac = sepet.containsKey(urunIsmi) ? sepet.get(urunIsmi) : 0;
+//
+//		sepet.put(urunIsmi, sayac + 1);
+
+		AtomicInteger i = new AtomicInteger(1);
+		urunler.forEach(x -> {
+			System.out.println(i + "-" + x.getIsim() + "==>" + x.getFiyat());
+			i.set(i.get() + 1);
+		});
+		System.out.println("Eklemek istediðiniz urun numarasýný giriniz");
+		Scanner scanner = new Scanner(System.in);
+		int urunIndex = scanner.nextInt();
+		String urunIsmi = urunler.get(urunIndex - 1).getIsim();
+
+		if (sepet.containsKey(urunIsmi)) {
+
+			sepet.put(urunIsmi, sepet.get(urunIsmi) + 1);
+		} else {
+
+			sepet.put(urunIsmi, 1);
+		}
+		System.out.println(urunIsmi + " sepete baþarýyla eklendi");
+
+	}
+
+	// ?
 	public void sepetToplami() {
 		List<Double> fiyatlar = new ArrayList<>();
 		DoubleSummaryStatistics toplam;
 
-		for (EUrun urun : product) {
-			fiyatlar.add(sepet.get(urun) * urunFiyatMap.get(urun));
+		for (Entry<String, Integer> urun : sepet.entrySet()) {
+			fiyatlar.add(urun.getValue() * urunFiyatMap.get(urun.getKey()));
 		}
 
 		toplam = fiyatlar.stream().collect(Collectors.summarizingDouble(Double::doubleValue));
 
-		System.out.println("Sepetin toplam fiyati " + toplam);
+		System.out.println("Sepetin toplam fiyati " + toplam.getSum());
 	}
 
 	public void sepetToplami2() {
@@ -125,16 +165,31 @@ public class Sepet {
 			fiyatlar.add(fiyat);
 		});
 		double toplam = 0;
+
 		for (Double fiyat : fiyatlar) {
 			toplam += fiyat;
 		}
+
 		System.out.println("Sepetin toplam fiyati " + toplam);
 	}
 
 	public void sepetToplami3() {
-		sepet.forEach((isim, adet) -> toplam += (urunFiyatMap.get(isim)) * adet);
+		//
+		// toplam=40 +80=120+120=240
 
+		toplam = 0;
+		sepet.forEach((isim, adet) -> toplam += (urunFiyatMap.get(isim) * adet));
 		System.out.println("Sepetin toplam fiyati " + toplam);
+	}
+
+	public void sepetToplami5() {
+		AtomicInteger toplam2 = new AtomicInteger(0);
+		int toplam3 = 0;
+		sepet.entrySet().stream().forEach(x -> {
+			double fiyat = toplam2.get() + urunFiyatMap.get(x.getKey()) * x.getValue();
+			toplam2.set((int) fiyat);
+		});
+		System.out.println("Sepetin toplam fiyati " + toplam2);
 	}
 
 	public void sepetToplami4() {
@@ -142,14 +197,76 @@ public class Sepet {
 		List<Double> fiyatlar = sepet.entrySet().stream().map(urun -> urunFiyatMap.get(urun.getKey()) * urun.getValue())
 				.collect(Collectors.toList());
 
+		// Entry set - Map Farký
+		// urunfiyatMap
+		// cola=20
+		// cips=15
+		// urunFiyatMap.get(cola) ===> donen deger 20
+		// urunFiyatMap.get(cips) ===> donen deger 15
+
+		// sepet
+		// cola=2
+		// cips=3
+		// sepet.get(cola) ===> donen deger 2
+		// sepet.get(cips) ===> donen deger 3
+
+		// sepetEntrySet
+		// 0.index ==> cola:2
+		// 1.index ==> cips:3
+
+		// 0.index.getKey()==> donen deger cola 0.index.getValue() ===> donen deger 2
+
 		Double toplam = fiyatlar.stream().reduce((s1, s2) -> s1 + s2).get();
 
 		Double toplam2 = sepet.entrySet().stream().map(urun -> urunFiyatMap.get(urun.getKey()) * urun.getValue())
 				.reduce((s1, s2) -> s1 + s2).get();
 
-		System.out.println("Sepetin toplam fiyati " + toplam);
+		Optional<Double> toplam3 = sepet.entrySet().stream()
+				.map(urun -> urunFiyatMap.get(urun.getKey()) * urun.getValue()).reduce((s1, s2) -> s1 + s2);
+
+		// System.out.println("Sepetin toplam fiyati " + toplam);
 
 		System.out.println("Sepetin toplam fiyati " + toplam2);
+
+	}
+
+	public void urunLeriListele() {
+
+		urunFiyatMap.forEach((k, v) -> System.out.println(k + "=" + v));
+
+	}
+
+	public void menu() {
+		int kontrol = 0;
+		Scanner scanner = new Scanner(System.in);
+		do {
+			System.out.println("-----------");
+			System.out.println("1-ÜrünListesi Goster");
+			System.out.println("2-Ürün Ekle");
+			System.out.println("3-Sepeti Goster");
+			System.out.println("0-Çýkýþ");
+			System.out.println("-----------");
+			System.out.println("Lütfen bir iþlem seciniz");
+			kontrol = scanner.nextInt();
+
+			switch (kontrol) {
+			case 1:
+				urunLeriListele();
+				break;
+			case 2:
+				urunEkle2();
+				break;
+			case 3:
+				sepetiGoset();
+				break;
+			case 0:
+
+				break;
+			default:
+				break;
+			}
+
+		} while (kontrol != 0);
 
 	}
 }
