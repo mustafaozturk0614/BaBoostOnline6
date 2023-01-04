@@ -10,6 +10,7 @@ public class DateOrnek {
 		LocalDate date1 = LocalDate.now();
 		System.out.println(date1);
 		LocalDate date2 = LocalDate.of(2020, 11, 3);
+
 		long gun = date2.until(date1, ChronoUnit.DAYS);
 		long hafta = date2.until(date1, ChronoUnit.WEEKS);
 		long ay = date2.until(date1, ChronoUnit.MONTHS);
