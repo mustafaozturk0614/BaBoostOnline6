@@ -17,14 +17,26 @@ public class Utility {
 	static Scanner scanner = new Scanner(System.in);
 
 	public static String stringDegerAlma(String sorgu) {
+
 		System.out.println(sorgu);
 		return scanner.nextLine();
 	}
 
 	public static int intDegerAlma(String sorgu) {
-
-		System.out.println(sorgu);
-		return Integer.parseInt(scanner.nextLine());
+		boolean kontrol = false;
+		// Integer deger = null; 2 int degerden birini tercih edebilirsiniz
+		int deger = 0;
+		do {
+			try {
+				System.out.println(sorgu);
+				deger = Integer.parseInt(scanner.nextLine());
+				kontrol = false;
+			} catch (Exception e) {
+				System.out.println("Lütfen bir rakam deðeri giriniz");
+				kontrol = true;
+			}
+		} while (kontrol);
+		return deger;
 	}
 
 	public static int randomSayýUret(int baslangic, int bitis) {
@@ -37,7 +49,6 @@ public class Utility {
 		LocalDate date = null;
 		do {
 			try {
-
 				date = LocalDate.parse(stringDegerAlma("Lütfen bir tarih degeri giriniz(yýl-ay-gün)"));
 				kontrol = false;
 			} catch (DateTimeParseException e) {
