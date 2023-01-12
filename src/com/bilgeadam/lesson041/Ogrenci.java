@@ -1,5 +1,7 @@
 package com.bilgeadam.lesson041;
 
+import java.io.Serializable;
+
 /*
  * name
  * ortalama
@@ -7,7 +9,7 @@ package com.bilgeadam.lesson041;
  * 
  * 
  */
-public class Ogrenci {
+public class Ogrenci implements Serializable {
 
 	private String name;
 	private double ort;

@@ -2,7 +2,12 @@ package com.bilgeadam.lesson041;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,6 +31,8 @@ public class Manager {
 	public static void main(String[] args) {
 		Manager manager = new Manager();
 		manager.dosyadanVeriOkuma2();
+		// manager.dosyayaOgrenciYaz();
+		manager.dosyadanOgrenciOku2();
 	}
 
 	public void dosyadanVeriOkuma() {
@@ -63,7 +70,7 @@ public class Manager {
 		} catch (Exception e) {
 
 		}
-		ogrenciler.forEach(System.out::println);
+		// ogrenciler.forEach(System.out::println);
 
 	}
 
@@ -77,6 +84,70 @@ public class Manager {
 
 	public double ortHesapla2(List<String> list) {
 		return list.subList(1, list.size()).stream().collect(Collectors.averagingDouble(x -> Double.parseDouble(x)));
+
+	}
+
+	public void dosyayaOgrenciYaz() {
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("E:/java6dosya/ogrenciseri.txt"));
+			ogrenciler.forEach(x -> {
+				try {
+					oos.writeObject(x);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			});
+		} catch (Exception e) {
+
+		}
+
+	}
+
+	public void dosyadanOgrenciOku() {
+		File file = new File("E:/java6dosya/ogrenciseri.txt");
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+
+			Ogrenci ogrenci;
+
+//			while (file.length() != 0) {
+//				System.out.println("===>" + ois.readObject());
+//
+//			}
+
+			while ((ogrenci = (Ogrenci) ois.readObject()) != null) {
+
+				System.out.println("===>" + ogrenci);
+			}
+
+		} catch (Exception e) {
+			System.out.println("Dosya sonuna gelindi");
+		}
+
+	}
+
+	public void dosyadanOgrenciOku2() {
+		File file = new File("E:/java6dosya/ogrenciseri2.txt");
+
+		try {
+			FileInputStream fileInputStream = new FileInputStream(file);
+			ObjectInputStream ois = new ObjectInputStream(fileInputStream);
+			List<Ogrenci> ogrenciListesi = (List<Ogrenci>) ois.readObject();
+			ogrenciListesi.forEach(System.out::println);
+		} catch (Exception e) {
+			System.out.println("Dosya sonuna gelindi ");
+		}
+
+	}
+
+	public void dosyayaOgrenciYaz2() {
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("E:/java6dosya/ogrenciseri2.txt"));
+			oos.writeObject(ogrenciler);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 

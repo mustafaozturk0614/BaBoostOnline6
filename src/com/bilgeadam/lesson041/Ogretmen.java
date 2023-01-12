@@ -1,5 +1,11 @@
 package com.bilgeadam.lesson041;
 
+import java.io.BufferedReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /*
  * 
  * ogretmen sýnýfýný thread yapalým
@@ -29,24 +35,39 @@ package com.bilgeadam.lesson041;
 public class Ogretmen extends Thread {
 
 	String name;
+	List<Ogrenci> ogrenciler = new ArrayList<>();
+	BufferedReader bufferedReader;
 
-	public Ogretmen(String name) {
+	public Ogretmen(String name, BufferedReader bufferedReader) {
 		super();
 		this.name = name;
+		this.bufferedReader = bufferedReader;
 	}
 
 	@Override
 	public void run() {
-		for (int i = 0; i < 10; i++) {
 
-			System.out.println(name + " ogretmen " + (i + 1) + ". ögrencinin notlarýný okudu");
-			try {
-				sleep(500);
-			} catch (InterruptedException e) {
+		try {
 
-				e.printStackTrace();
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				String[] array = line.split(",");// Mustafa,87,76,60
+				double ort = ortHesapla2(Arrays.asList(array));
+				Ogrenci ogrenci = new Ogrenci(array[0], ort);
+				ogrenciler.add(ogrenci);
+				System.out.println(name + "====>" + ogrenci.getName() + " adlý ogrenciyi ekledi");
 			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
 		}
+
+	}
+
+	public double ortHesapla2(List<String> list) {
+		return list.subList(1, list.size()).stream().collect(Collectors.averagingDouble(x -> Double.parseDouble(x)));
+
 	}
 
 }
