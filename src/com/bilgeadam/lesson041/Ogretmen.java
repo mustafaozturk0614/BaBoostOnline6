@@ -46,7 +46,6 @@ public class Ogretmen extends Thread {
 
 	@Override
 	public void run() {
-
 		try {
 
 			String line;

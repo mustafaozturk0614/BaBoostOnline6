@@ -18,6 +18,7 @@ public class OgretmenTest {
 			Ogretmen ogretmen1 = new Ogretmen("Muhammet", bufferedReader);
 			Ogretmen ogretmen2 = new Ogretmen("Mustafa", bufferedReader);
 			ogretmen1.start();
+
 			ogretmen2.start();
 			try {
 				ogretmen1.join();
@@ -26,7 +27,6 @@ public class OgretmenTest {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 			System.out.println(ogretmen1.ogrenciler.size());
 			System.out.println(ogretmen2.ogrenciler.size());
 
