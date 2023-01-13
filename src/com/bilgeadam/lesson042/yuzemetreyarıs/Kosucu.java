@@ -22,22 +22,51 @@ package com.bilgeadam.lesson042.yuzemetreyarýs;
  * 
  */
 
-import java.util.Queue;
-
 public class Kosucu implements Runnable {
+
+	public String getIsim() {
+		return isim;
+	}
+
+	public int getMesafe() {
+		return mesafe;
+	}
+
+	public long getSure() {
+		return sure;
+	}
+
+	public long getBaslangicZamani() {
+		return baslangicZamani;
+	}
+
+	public void setIsim(String isim) {
+		this.isim = isim;
+	}
+
+	public void setMesafe(int mesafe) {
+		this.mesafe = mesafe;
+	}
+
+	public void setSure(long sure) {
+		this.sure = sure;
+	}
+
+	public void setBaslangicZamani(long baslangicZamani) {
+		this.baslangicZamani = baslangicZamani;
+	}
 
 	String isim;
 	int mesafe;
 	long sure;
 	long baslangicZamani;
-	Queue<Kosucu> kosucular;
 
-	public Kosucu(String isim, long baslangicZamani, Queue<Kosucu> kosucular) {
+	public Kosucu(String isim, long baslangicZamani) {
 		super();
 		this.isim = isim;
 		this.mesafe = 0;
 		this.baslangicZamani = baslangicZamani;
-		this.kosucular = kosucular;
+
 	}
 
 	@Override
@@ -57,7 +86,6 @@ public class Kosucu implements Runnable {
 		long bitisZamaný = System.currentTimeMillis();
 		this.sure = bitisZamaný - baslangicZamani;
 		System.out.println(isim + " adlý kosucu 100 metreyi <" + sure + "> milisaniyede koþmusutur");
-		kosucular.offer(this);
 
 	}
 
