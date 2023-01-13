@@ -6,7 +6,10 @@ public class Test {
 
 		Durak durak = new Durak();
 
-		durak.taksiler.forEach(x -> x.start());
+		durak.taksiler.forEach(x -> {
+			Thread thread = new Thread(x);
+			thread.start();
+		});
 
 	}
 

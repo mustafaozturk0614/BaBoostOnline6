@@ -29,7 +29,7 @@ import java.util.Random;
  * 
  * 
  */
-public class Taksi extends Thread {
+public class Taksi implements Runnable {
 
 	int id;
 	List<Integer> musteriNolar;
