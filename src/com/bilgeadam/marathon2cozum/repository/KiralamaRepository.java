@@ -1,6 +1,7 @@
 package com.bilgeadam.marathon2cozum.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.bilgeadam.marathon2cozum.entity.Kiralama;
 import com.bilgeadam.marathon2cozum.utility.Database;
@@ -8,15 +9,15 @@ import com.bilgeadam.marathon2cozum.utility.Database;
 public class KiralamaRepository implements ICrud<Kiralama> {
 
 	@Override
-	public Kiralama findById(long id) {
+	public Optional<Kiralama> findById(long id) {
 
-		return null;
+		return Database.kiralananKitaplar.stream().filter(x -> x.getId() == id).findFirst();
 	}
 
 	@Override
-	public Kiralama findbyName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<Kiralama> findbyName(String name) {
+
+		return Database.kiralananKitaplar.stream().filter(x -> x.getKitap().getName().equals(name)).findFirst();
 	}
 
 	@Override

@@ -2,10 +2,12 @@ package com.bilgeadam.marathon2cozum.service;
 
 import java.util.List;
 
-public interface ICrudService<T> {
-	T findById(long id);
+import com.bilgeadam.marathon2cozum.exception.KutuphaneException;
 
-	T findbyName(String name);
+public interface ICrudService<T> {
+	T findById(long id) throws KutuphaneException;
+
+	T findbyName(String name) throws KutuphaneException;
 
 	List<T> findAll();
 

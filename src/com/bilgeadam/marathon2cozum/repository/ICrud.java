@@ -1,12 +1,13 @@
 package com.bilgeadam.marathon2cozum.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ICrud<T> {
 
-	T findById(long id);
+	Optional<T> findById(long id);
 
-	T findbyName(String name);
+	Optional<T> findbyName(String name);
 
 	List<T> findAll();
 
