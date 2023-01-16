@@ -161,7 +161,6 @@ public class Uygulama {
 			kitap = kitapController.findById(id);
 			List<Musteri> musteriler = kiralamaController.findAll().stream().filter(x -> x.getKitap().equals(kitap))
 					.map(x -> x.getMusteri()).collect(Collectors.toList());
-
 			System.out.println(id + " Li kitabý enson kiralayan muserti===> " + musteriler.get(musteriler.size() - 1));
 		} catch (KutuphaneException e) {
 			FileUtils.createLog(new Log(e.getMessage(), e.getErrorType().getCode(), Uygulama.class.getName(),
