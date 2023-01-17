@@ -1,10 +1,10 @@
 package com.bilgeadam.lesson043.dependencyInversion.databaselogger;
 
-public class MongoLogger implements ILogger {
+public class MongoLogger {
 
-	public void log() {
+	public void log(String ex) {
 
-		System.out.println("mongoyo loglandý");
+		System.out.println(ex + "-->mongoyo loglandý");
 	}
 
 }

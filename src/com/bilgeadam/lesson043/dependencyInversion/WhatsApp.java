@@ -44,7 +44,6 @@ public class WhatsApp extends SosyalMedya implements IEmailSendable, ISmsSenadab
 
 	@Override
 	public void hikayePaylas() {
-		// TODO Auto-generated method stub
 
 	}
 

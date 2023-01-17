@@ -4,16 +4,13 @@ public class DatabaseLogger {
 
 	PostgreLogger postgreLogger = new PostgreLogger();
 
-	public void logToPostgre() {
-		PostgreLogger postgreLogger2 = new PostgreLogger();
-		postgreLogger.log();
-		postgreLogger2.log();
-
+	public void logToPostgre(String ex) {
+		postgreLogger.log(ex);
 	}
 
-	public void logToMongo() {
+	public void logToMongo(String ex) {
 		MongoLogger mongoLogger = new MongoLogger();
-		mongoLogger.log();
+		mongoLogger.log(ex);
 	}
 
 }

@@ -1,10 +1,10 @@
 package com.bilgeadam.lesson043.dependencyInversion.databaselogger;
 
-public class PostgreLogger implements ILogger {
+public class PostgreLogger {
 
-	public void log() {
+	public void log(String ex) {
 
-		System.out.println("postgreye loglandý");
+		System.out.println(ex + "-->postgreye loglandý");
 	}
 
 }

@@ -1,7 +1,6 @@
-package com.bilgeadam.lesson043.dependencyInversion.databaselogger;
+package com.bilgeadam.lesson043.dependencyInversion.databaselogger.cözüm;
 
 public class DatabaseLogger2 {
-
 	ILogger logger;
 
 	public DatabaseLogger2(ILogger logger) {
@@ -9,8 +8,8 @@ public class DatabaseLogger2 {
 		this.logger = logger;
 	}
 
-	public void log() {
-		logger.log();
+	public void logToDatabse(String ex) {
+		logger.log(ex);
 	}
 
 }
