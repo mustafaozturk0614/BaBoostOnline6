@@ -16,17 +16,17 @@ public class Uygulama {
 	static Scanner scanner = new Scanner(System.in);
 
 	public Uygulama() {
-		baslangýcVerisiOlustur();
+		baslangÃ½cVerisiOlustur();
 	}
 
-	public void baslangýcVerisiOlustur() {
+	public void baslangÃ½cVerisiOlustur() {
 
-		Yonetmen yonetmen1 = new Yonetmen("Miyazaki", "Japonya");
-		Film movie1 = new Film("RuhlarýnKAcýsý", LocalDate.of(2001, 10, 10), 5000000, ETur.ANIME, yonetmen1, 9.5);
+			Yonetmen yonetmen1 = new Yonetmen("Miyazaki", "Japonya");
+		Film movie1 = new Film("RuhlarÄ±n KaÄ±Ã§Ä±ÅŸÄ±", LocalDate.of(2001, 10, 10), 5000000, ETur.ANIME, yonetmen1, 9.5);
 		Film movie2 = new Film("Ruzgarli Vadi", LocalDate.of(1984, 06, 8), 1000000, ETur.ANIME, yonetmen1, 9.1);
 		Film movie3 = new Film("Prenses Mononoke", LocalDate.of(1997, 10, 10), 30000000, ETur.ANIME, yonetmen1, 9.6);
 		Film movie4 = new Film("Yuruyen Sato", LocalDate.of(2004, 10, 10), 1000000, ETur.ANIME, yonetmen1, 8.7);
-		Yonetmen yonetmen2 = new Yonetmen("Reha Erdem", "Türkiye");
+		Yonetmen yonetmen2 = new Yonetmen("Reha Erdem", "TÃ¼rkiye");
 		Film movie5 = new Film("KaÃ§ Para KaÃ§", LocalDate.of(1999, 10, 10), 100000, ETur.DRAMA, yonetmen2, 7.5);
 		Film movie6 = new Film("Korkuyorum Anne", LocalDate.of(2004, 06, 8), 300000, ETur.KARAMIZAH, yonetmen2, 8.1);
 		Film movie7 = new Film("Kosmos", LocalDate.of(2009, 12, 12), 500000, ETur.DRAMA, yonetmen2, 8.6);
@@ -48,16 +48,16 @@ public class Uygulama {
 		Film movie19 = new Film("Ä°htiyarlara Yer Yok", LocalDate.of(2007, 7, 17), 1700000, ETur.DRAMA, yonetmen4, 9.3);
 		Film movie20 = new Film("Ciddi Bir Adam", LocalDate.of(2009, 7, 17), 500000, ETur.KARAMIZAH, yonetmen4, 8.0);
 
-		Yonetmen yonetmen5 = new Yonetmen("Emin Alper", "Türkiye");
-		Film movie21 = new Film("Tepenin Ardý", LocalDate.of(2012, 7, 17), 50000, ETur.DRAMA, yonetmen5, 7.7);
-		Film movie22 = new Film("Kýz Kardesler", LocalDate.of(2019, 7, 17), 400000, ETur.DRAMA, yonetmen5, 8.5);
+		Yonetmen yonetmen5 = new Yonetmen("Emin Alper", "TÃ¼rkiye");
+		Film movie21 = new Film("Tepenin ArdÃ½", LocalDate.of(2012, 7, 17), 50000, ETur.DRAMA, yonetmen5, 7.7);
+		Film movie22 = new Film("KÄ±z Kardesler", LocalDate.of(2019, 7, 17), 400000, ETur.DRAMA, yonetmen5, 8.5);
 		Film movie23 = new Film("Kurak Gunler", LocalDate.of(2022, 7, 17), 600000, ETur.DRAMA, yonetmen5, 8.4);
 		Yonetmen yonetmen6 = new Yonetmen("Wes Anderson", "Amerika");
 		Film movie24 = new Film("Yaman Tilki", LocalDate.of(2009, 7, 17), 900000, ETur.ANIMASYON, yonetmen6, 7.8);
 		Film movie25 = new Film("Moonrise Kingdom", LocalDate.of(2012, 7, 17), 8500000, ETur.FANTASTIK, yonetmen4, 8.6);
-		Film movie26 = new Film("BuyukBudapeste Oteli ", LocalDate.of(2014, 7, 17), 1200000, ETur.FANTASTIK, yonetmen4,
+		Film movie26 = new Film("BÃ¼yÃ¼k BudapeÅŸte Oteli ", LocalDate.of(2014, 7, 17), 1200000, ETur.FANTASTIK, yonetmen4,
 				9.0);
-		Film movie27 = new Film("Kopek Adasý ", LocalDate.of(2018, 7, 17), 1500000, ETur.ANIMASYON, yonetmen4, 9.2);
+		Film movie27 = new Film("Kopek AdasÄ± ", LocalDate.of(2018, 7, 17), 1500000, ETur.ANIMASYON, yonetmen4, 9.2);
 
 		filmler = List.of(movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10, movie11,
 				movie12, movie13, movie14, movie15, movie16, movie17, movie18, movie19, movie20, movie21, movie22,
@@ -65,10 +65,10 @@ public class Uygulama {
 
 	}
 
-	// Dýsarýdan bir ulke ismi girelim bu ülke ýsmýne gore yonetmenleri bir listede
-	// toplayalým
-	// eger ulke ýsmý yoksa bu ulkde yonetemen bulunamadý dýye bir cýktý versýn
-	// bulmussada listeyi yazdýrsýn
+	// DÃ½sarÃ½dan bir ulke ismi girelim bu Ã¼lke Ã½smÃ½ne gore yonetmenleri bir listede
+	// toplayalÃ½m
+	// eger ulke Ã½smÃ½ yoksa bu ulkde yonetemen bulunamadÃ½ dÃ½ye bir cÃ½ktÃ½ versÃ½n
+	// bulmussada listeyi yazdÃ½rsÃ½n
 	public void ulkeyeGoreYonetmenler() {
 		List<Yonetmen> yonetmenler = new ArrayList<>();
 		String isim = scanner.nextLine();
@@ -95,9 +95,9 @@ public class Uygulama {
 		yonetmenler.forEach(System.out::println);
 
 	}
-	// puanlarý 8 den yuksek olan filmleri yazdýran metot
+	// puanlarÃ½ 8 den yuksek olan filmleri yazdÃ½ran metot
 
-	public void puanlarý8denBuyukOlanFilmler() {
+	public void puanlarÃ½8denBuyukOlanFilmler() {
 
 		filmler.stream().filter(x -> x.getPuan() > 8).forEach(y -> System.out.println(y));
 
@@ -105,14 +105,14 @@ public class Uygulama {
 				.collect(Collectors.toSet());
 	}
 
-	public void filmlerinpuanortalamasý() {
+	public void filmlerinpuanortalamasÃ½() {
 
 		double ortalama = filmler.stream().collect(Collectors.averagingDouble(x -> x.getPuan()));
 		System.out.println(ortalama);
 
 	}
 
-	public void yonetmenlerinpuanortalamasý() {
+	public void yonetmenlerinpuanortalamasÃ½() {
 
 		Map<Yonetmen, List<Film>> yonetmenMap = new HashMap<>();// rehaerdem = {Kosmos,KAc para kac }
 
@@ -132,10 +132,10 @@ public class Uygulama {
 		yeniMap.forEach((k, v) -> System.out.println(k + "-" + v));
 	}
 
-	public void hasýlatToplamý() {
+	public void hasÃ½latToplamÃ½() {
 
-		Optional<Long> hasýlat = filmler.stream().map(x -> x.getHasilat()).reduce((f1, f2) -> f1 + f2);
-		System.out.println(hasýlat);
+		Optional<Long> hasÃ½lat = filmler.stream().map(x -> x.getHasilat()).reduce((f1, f2) -> f1 + f2);
+		System.out.println(hasÃ½lat);
 
 	}
 
@@ -143,10 +143,10 @@ public class Uygulama {
 
 		Uygulama uygulama = new Uygulama();
 		// uygulama.ulkeyeGoreYonetmenler();
-		// uygulama.puanlarý8denBuyukOlanFilmler();
-		// uygulama.filmlerinpuanortalamasý();
-		// uygulama.yonetmenlerinpuanortalamasý();
-		uygulama.hasýlatToplamý();
+		// uygulama.puanlarÃ½8denBuyukOlanFilmler();
+		// uygulama.filmlerinpuanortalamasÃ½();
+		// uygulama.yonetmenlerinpuanortalamasÃ½();
+		uygulama.hasÃ½latToplamÃ½();
 
 	}
 
